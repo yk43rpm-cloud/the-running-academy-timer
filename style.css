@@ -1,0 +1,123 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    background-color: #00a2e8;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+header p {
+    margin: 5px 0 0 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px 0;
+}
+.timer-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+.badge {
+    display: inline-block;
+    background-color: #7f8c8d;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#main-timer {
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+.btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.1s;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+.btn-start {
+    background-color: #ff4757;
+    color: white;
+}
+.runners-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.runners-section h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    color: #555;
+}
+.runner-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+.runner-card:last-child {
+    border-bottom: none;
+}
+.runner-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 25%;
+}
+.btn-lap {
+    background-color: #00a2e8;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 40%;
+}
+.record-time {
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    color: #333;
+    width: 30%;
+    text-align: right;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20px 0;
+}

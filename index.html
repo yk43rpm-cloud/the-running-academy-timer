@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Running Academy Timer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Running Academy Timer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>The Running Academy</h1>
+        <p>Runners Timer System</p>
+    </header>
 
-<h1>The Running Academy Timer</h1>
+    <main>
+        <!-- メインタイマー部分 -->
+        <section class="timer-section">
+            <div class="badge">TOTAL TIME</div>
+            <div id="main-timer">00:00.00</div>
+            <button id="start-btn" class="btn btn-start">一斉スタート</button>
+        </section>
 
-<p>開発中...</p>
+        <!-- 選手一覧部分 -->
+        <section class="runners-section">
+            <h2>選手レコード</h2>
+            
+            <div class="runner-card">
+                <span class="runner-name">選手 A</span>
+                <button class="btn btn-lap" data-runner="A">ゴール</button>
+                <span class="record-time" id="time-A">--:--.--</span>
+            </div>
 
+            <div class="runner-card">
+                <span class="runner-name">選手 B</span>
+                <button class="btn btn-lap" data-runner="B">ゴール</button>
+                <span class="record-time" id="time-B">--:--.--</span>
+            </div>
+
+            <div class="runner-card">
+                <span class="runner-name">選手 C</span>
+                <button class="btn btn-lap" data-runner="C">ゴール</button>
+                <span class="record-time" id="time-C">--:--.--</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
