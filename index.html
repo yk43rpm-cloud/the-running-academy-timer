@@ -3,52 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Running Academy Timer</title>
+    <title>The Running Academy - Ultimate Timer</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 追加機能のための専用デザイン */
+        .countdown-display { font-size: 24px; color: #ff9f43; font-weight: bold; margin-bottom: 10px; height: 30px; text-align: center; }
+        .split-mini { font-size: 11px; color: #888; margin-left: 5px; }
+        .quick-section { background: #f0f2f5; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; }
+        .btn-quick { background: #6c5ce7; color: white; font-size: 18px; padding: 12px 24px; border: none; border-radius: 5px; width: 100%; cursor: pointer; font-weight: bold; }
+        .pending-item { display: flex; justify-content: space-between; align-items: center; background: white; padding: 8px; margin-top: 5px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .assign-btn { background: #007bff; color: white; border: none; padding: 4px 8px; margin-left: 4px; border-radius: 3px; cursor: pointer; font-size: 12px; }
+        
+        /* 選手管理用スタイル */
+        .admin-section { background: #e3fafc; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .add-runner-box { display: flex; gap: 8px; margin-bottom: 10px; }
+        .input-name { flex: 1; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }
+        .btn-add { background: #0b7285; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-csv { background: #2b8a3e; color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; font-size: 15px; margin-top: 5px; }
+        
+        /* カードの並び替え・削除ボタン */
+        .runner-controls { display: flex; gap: 4px; align-items: center; }
+        .btn-ctrl { background: #e9ecef; border: 1px solid #dee2e6; border-radius: 3px; padding: 2px 6px; font-size: 12px; cursor: pointer; }
+        .btn-del { background: #ffe3e3; color: #c92a2a; border: 1px solid #ffc9c9; }
+        .runner-card { margin-bottom: 12px; position: relative; }
+        .runner-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px; }
+    </style>
 </head>
 <body>
     <header>
         <h1>The Running Academy</h1>
-        <p>Runners Timer System</p>
+        <p>Runners Timer System - Ultimate</p>
     </header>
 
     <main>
         <!-- メインタイマー部分 -->
         <section class="timer-section">
+            <div id="countdown-text" class="countdown-display"></div>
             <div class="badge">TOTAL TIME</div>
             <div id="main-timer">00:00.00</div>
-            <button id="start-btn" class="btn btn-start">一斉スタート</button>
+            <button id="start-btn" class="btn btn-start">カウントダウン始動</button>
+        </section>
+
+        <!-- 選手管理・CSV出力 -->
+        <section class="admin-section">
+            <div class="add-runner-box">
+                <input type="text" id="new-runner-name" class="input-name" placeholder="選手名を入力 (例: 山田太郎)">
+                <button id="add-runner-btn" class="btn-add">選手追加</button>
+            </div>
+            <button id="download-csv-btn" class="btn-csv">📊 Excel用CSVデータを保存</button>
+        </section>
+
+        <!-- とりあえずタイムだけ取るボタン -->
+        <section class="quick-section">
+            <button id="quick-lap-btn" class="btn-quick">⚠️ 誰か分からんが今ゴール！</button>
+            <div id="pending-laps-container" style="text-align: left; margin-top: 10px;">
+                <span style="font-size: 13px; color: #555; font-weight: bold;">未割り振りのタイム：</span>
+                <ul id="pending-list" style="list-style: none; padding: 0; margin: 5px 0 0 0;"></ul>
+            </div>
         </section>
 
         <!-- 選手一覧部分 -->
         <section class="runners-section">
             <h2>選手レコード</h2>
-            
-            <!-- 選手 A -->
-            <div class="runner-card">
-                <div class="runner-info">
-                    <span class="runner-name">選手 A</span>
-                    <button class="btn btn-lap" data-runner="A">ラップ記録</button>
-                </div>
-                <ul class="lap-list" id="laps-A"></ul>
-            </div>
-
-            <!-- 選手 B -->
-            <div class="runner-card">
-                <div class="runner-info">
-                    <span class="runner-name">選手 B</span>
-                    <button class="btn btn-lap" data-runner="B">ラップ記録</button>
-                </div>
-                <ul class="lap-list" id="laps-B"></ul>
-            </div>
-
-            <!-- 選手 C -->
-            <div class="runner-card">
-                <div class="runner-info">
-                    <span class="runner-name">選手 C</span>
-                    <button class="btn btn-lap" data-runner="C">ラップ記録</button>
-                </div>
-                <ul class="lap-list" id="laps-C"></ul>
+            <div id="runners-container">
+                <!-- ここに動的に選手カードが追加されます -->
             </div>
         </section>
     </main>
